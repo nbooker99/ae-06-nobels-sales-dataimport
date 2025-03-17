@@ -1529,7 +1529,8 @@ fav_food</code></pre>
 levels in the following order: <code>Low</code>, <code>Middle</code>,
 <code>High</code>.</li>
 </ul>
-<pre class="r"><code># add code here</code></pre>
+<pre class="r"><code>fav_food &lt;- fav_food %&gt;%
+  mutate(SES = factor(SES, levels = c(&quot;Low&quot;, &quot;Middle&quot;, &quot;High&quot;)))</code></pre>
 </div>
 <div id="step-3-save-to-csv" class="section level2">
 <h2>Step 3: Save to CSV</h2>
@@ -1537,7 +1538,7 @@ levels in the following order: <code>Low</code>, <code>Middle</code>,
 <li>Write out the resulting data frame to
 <code>favourite-food.csv</code> in the <code>data/</code> folder.</li>
 </ul>
-<pre class="r"><code># add code here</code></pre>
+<pre class="r"><code>write.csv(fav_food, &quot;data/favourite-food.csv&quot;)</code></pre>
 </div>
 <div id="step-5-verify-csv-data" class="section level2">
 <h2>Step 5: Verify CSV Data</h2>
@@ -1546,7 +1547,15 @@ levels in the following order: <code>Low</code>, <code>Middle</code>,
 <code>data/</code> folder and observe the variable types. Are they as
 you left them?</li>
 </ul>
-<pre class="r"><code># add code here</code></pre>
+<pre class="r"><code>fav_food2 &lt;- read_csv(&quot;data/favourite-food.csv&quot;)</code></pre>
+<pre><code>## New names:
+## Rows: 5 Columns: 7
+## ── Column specification
+## ──────────────────────────────────────────────────────── Delimiter: &quot;,&quot; chr
+## (5): Full Name, favourite.food, mealPlan, AGE, SES dbl (2): ...1, Student ID
+## ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+## Specify the column types or set `show_col_types = FALSE` to quiet this message.
+## • `` -&gt; `...1`</code></pre>
 </div>
 </div>
 <div id="part-2-excel-to-rds-workflow" class="section level1">

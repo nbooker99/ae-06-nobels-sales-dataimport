@@ -37,16 +37,17 @@ fav_food
 * Convert the SES (socioeconomic status) to a factor variables with levels in the 
 following order: `Low`, `Middle`, `High`.
 
-```{r label-me3}
-# add code here
+```{r SES_to_factor}
+fav_food <- fav_food %>%
+  mutate(SES = factor(SES, levels = c("Low", "Middle", "High")))
 ```
 
 ## Step 3: Save to CSV
 
 * Write out the resulting data frame to `favourite-food.csv` in the `data/` folder.
 
-```{r label-me4}
-# add code here
+```{r write_out}
+write.csv(fav_food, "data/favourite-food.csv")
 ```
 
 ## Step 5: Verify CSV Data
@@ -54,8 +55,8 @@ following order: `Low`, `Middle`, `High`.
 * Finally, read `favourite-food.csv` back in from the `data/` folder and 
 observe the variable types. Are they as you left them?
 
-```{r label-me5}
-# add code here
+```{r check}
+fav_food2 <- read_csv("data/favourite-food.csv")
 ```
 
 # Part 2: Excel to RDS Workflow
